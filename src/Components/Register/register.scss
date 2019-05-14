@@ -1,0 +1,8 @@
+@import '../../variables.scss';
+
+.register-container{
+    @include card;
+    button{
+        width: 125px;
+    }
+}

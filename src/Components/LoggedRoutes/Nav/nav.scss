@@ -1,0 +1,23 @@
+@import '../../../variables.scss';
+nav{
+    background: linear-gradient(266deg, rgba(136,96,208,1) 29%, rgba(90,185,234,1) 100%);
+    margin: 0px;
+    font-family: $font1;
+    ul{
+        display: flex;
+        list-style: none;
+        justify-content: flex-end;
+        li{
+            margin: 5px 20px;
+        }
+        a{
+            color: $color4;
+            text-decoration: none;
+            font-size: 20px;
+            transition: 0.3s all;
+            &:hover{
+                opacity: 0.5;
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+$color1 : #5680E9;
+$color2 : #84CEEB;
+$color3 : #5AB9EA;
+$color4 : #d4ddff;
+$color5 : #8860D0;
+
+$font1 : 'Poppins', sans-serif;
+
+@mixin card{
+    font-family: $font1;
+    width: 350px;
+    position: relative;
+    top: 275px;
+    margin: 0px auto;
+    padding: 20px 30px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: $color2;
+    box-shadow: 3px 3px 10px 1px grey;
+    button{
+        margin-bottom: 10px;
+        width: 100px;
+        background: linear-gradient(90deg, #5680E9, #619ddf 64%, #5680E9);
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        font-size: 20px;
+        transition: 0.3s all;
+        box-shadow: 3px 3px 13px -5px rgba(0, 0, 0, .71);
+        padding: 5px 0px;
+        color: white;
+        &:hover{
+            cursor: pointer;
+            box-shadow: none;
+
+        }
+    }
+    h1{
+        margin-bottom: 20px;
+        font-size: 20px;
+        width: 100%;
+    }
+    h4{
+        color: #655f5f;
+    }
+}
