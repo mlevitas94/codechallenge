@@ -8,7 +8,7 @@ import './app.scss'
 function App() {
   return (
     <div className="App">
-      <Switch>
+      <Switch> 
           <Route exact path='/register' component={Register}/>
           <Route path='/dashboard' component={Dashboard}/>
           <Route exact path='/' component={Login}/>

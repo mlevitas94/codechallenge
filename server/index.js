@@ -15,10 +15,12 @@ app.use(
     session({
     secret: SESSION_SECRET,
     resave: false,
-    saveUninitialized: false 
+    saveUninitialized: false
 }))
 
 app.post('/register', main.register)
+app.post('/login', main.login)
+app.get('/getuser', main.getUser)
 
 
 
