@@ -1,28 +1,42 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import './login.scss'
 import Axios from 'axios'
 import {updateUser} from '../../ducks/reducer'
 
-const Login = () => {
+const Login = (props) => {
+
   const [emailField, setEmailField] = useState('');
   const [passField, setPassField] = useState('');
-  //check session on component mount
+  useEffect(() => {
+    if(props.user.id){
+        return props.history.push('/dashboard/projects')
+    }
 
+    Axios.get('/getuser').then(res => {
+      props.updateUser(res.data)
+      return props.history.push('/dashboard/projects')
+    }).catch(err => {
+      //do nothing?
+    })
+}, [])
   const login = (email, password) => {
     const loginInfo = {
       email,
       password
     }
     Axios.post('/login', loginInfo).then(res => {
-      console.log(res.data)
-      //update the user here
+      props.updateUser(res.data)
+      setEmailField('')
+      setPassField('')
+      props.history.push('/dashboard/projects')
+
+      
     }).catch(err => {
-      console.log(err)
+      
     })
   }
-
   return (
     <div className='login-container'>
       <h1>Enter your email and password</h1>

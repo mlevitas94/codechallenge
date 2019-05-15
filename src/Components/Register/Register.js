@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom'
 import './register.scss'
 import Axios from 'axios';
+import {connect} from 'react-redux'
+import {updateUser} from '../../ducks/reducer'
 
-const Register = () => {
+const Register = (props) => {
     const [nameField, setNameField] = useState('');
     const [emailField, setEmailField] = useState('');
     const [passField, setPassField] = useState('');
+
+    useEffect(() => {
+        if(props.user.id){
+            props.history.push('/dashboard/projects')
+        }
+        Axios.get('/getuser').then(res => {
+            props.updateUser(res.data)
+            props.history.push('/dashboard/projects')
+        })
+    }, [])
 
     const register = (name, email, password) =>{
         const signup = {
@@ -15,11 +27,16 @@ const Register = () => {
             password
         }
         Axios.post('/register', signup).then(res => {
-            console.log(res.data)
+            props.updateUser(res.data)
+            setNameField('')
+            setEmailField('')
+            setPassField('')
+            props.history.push('/dashboard/projects')
         }).catch(err => {
             console.log(err)
         })
     }
+    console.log(props)
     return(
         <div className='register-container'>
             <h1>Please fill out the information below to get started!</h1>
@@ -43,4 +60,11 @@ const Register = () => {
         </div>
     )
 }
-export default Register
+const mapToProps = reduxState => {
+    const {user} = reduxState
+  
+    return {
+        user
+    }
+  }
+export default connect(mapToProps , {updateUser})(Register)
