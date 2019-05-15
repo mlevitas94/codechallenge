@@ -1,11 +1,15 @@
 import React, {useState} from 'react'
 import './projects.scss'
+import Axios from 'axios';
 
 const Projects = (props) => {
     const [projNameField, setProjNameField] = useState('')
-
     const newProject = () => {
-
+        Axios.post('/newproject', {name: projNameField}).then(res => {
+            console.log(res.data)
+        }).catch(err => {
+            console.log(err)
+        })
     }
 
     const openProjectSubmition = () => {
@@ -14,7 +18,6 @@ const Projects = (props) => {
         input.classList.toggle('submition-on')
         slider.classList.toggle('tool-tip-gone')
     }
-    console.log(projNameField)
     return (
         <div className='projects-container'>
             <div className='projects-header'>
@@ -32,7 +35,7 @@ const Projects = (props) => {
                 </div>
                 <span className='project-submition'>
                     <input type='text' value={projNameField} onChange={(e) => {setProjNameField(e.target.value)}} maxLength={50} placeholder='Project Name...'/> 
-                    <button className='submit-project'>Submit</button>
+                    <button className='submit-project' onClick={() => {newProject()}}>Submit</button>
                 </span>
                 <p>Where projects will go</p>
             </div>

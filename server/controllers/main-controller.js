@@ -51,7 +51,10 @@ module.exports = {
             delete user.password
             delete user.admin
 
+            const projects = await db.auth.get_projects(user.id)
+            
             session.user = user
+            session.user.projects = projects
             console.log(session)
 
             return res.status(200).send(session.user)
@@ -76,6 +79,21 @@ module.exports = {
             return res.sendStatus(200)
         }catch(err){
             return res.sendStatus(500)
+        }
+    },
+
+    addProject : async (req,res) => {
+        const db = req.app.get('db')
+        const {name} = req.body
+        const {id} = req.session.user
+        console.log(name)
+
+        try{
+            let newProject = await db.auth.new_project(id, name)
+            newProject = newProject[0]
+            return res.status(200).send(newProject)
+        }catch(err){
+            return res.status(500).send(err)
         }
     }
 }
