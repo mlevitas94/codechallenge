@@ -21,6 +21,7 @@ app.use(
 app.post('/register', main.register)
 app.post('/login', main.login)
 app.get('/getuser', main.getUser)
+app.get('/logout', main.logout)
 
 
 

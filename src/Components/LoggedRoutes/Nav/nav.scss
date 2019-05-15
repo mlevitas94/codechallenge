@@ -19,5 +19,18 @@ nav{
                 opacity: 0.5;
             }
         }
+        button{
+            background-color: $color1;
+            border: none;
+            padding: 0px 10px;
+            border-radius: 5px;
+            font-family: $font1;
+            color: $color4;
+            transition: 0.3s all;
+            &:hover{
+                cursor: pointer;
+                opacity: 0.5;
+            }
+        }
     }
 }

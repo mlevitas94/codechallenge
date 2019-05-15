@@ -70,4 +70,12 @@ module.exports = {
             res.sendStatus(401)
         }
     },
+    logout: (req,res) => {
+        try{
+            req.session.destroy()
+            return res.sendStatus(200)
+        }catch(err){
+            return res.sendStatus(500)
+        }
+    }
 }

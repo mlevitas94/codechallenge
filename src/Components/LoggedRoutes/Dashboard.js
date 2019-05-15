@@ -14,7 +14,7 @@ const Dashboard = (props) => {
     }, [])
     return (
         <div className='dashboard-container'>
-            <Nav/>
+            <Nav passedProps={props}/>
             <Switch>
                 <Route path='/dashboard/projects' component={Projects}/>
                 <Route path='/dashboard/profile' component={Profile}/>

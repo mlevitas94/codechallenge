@@ -37,6 +37,7 @@ const Login = (props) => {
       
     })
   }
+  console.log(props)
   return (
     <div className='login-container'>
       <h1>Enter your email and password</h1>
