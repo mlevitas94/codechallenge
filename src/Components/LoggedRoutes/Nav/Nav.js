@@ -15,7 +15,6 @@ const Nav = (props) => {
             console.log(err)
         })
     }
-    console.log(props)
     return (
         <nav>
             <ul>

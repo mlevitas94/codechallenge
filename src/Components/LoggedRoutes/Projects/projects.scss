@@ -1,0 +1,87 @@
+@import '../../../variables.scss';
+
+.projects-container{
+    font-family: $font1;
+    margin: 50px auto 0px auto;
+    .projects-header{
+        margin-bottom: 50px;
+        h1{
+            font-size: 60px;
+            text-align: center;
+        }
+    }
+    .project-details{
+        ul{
+            display: flex;
+            justify-content: space-evenly;
+            font-size: 20px;
+            li{
+                span{
+                    color: $color5;
+                }
+            }
+        }
+    }
+    .list-container{
+        position: relative;
+        background-color: #5680e947;
+        width: 800px;
+        margin: 50px auto 0px auto;
+        .add-button{
+            position: relative;
+            bottom: 20px;
+            right: 10px;
+            border-radius: 50%;
+            text-align: center;
+            display: inline-block;
+            font-size: 40px;
+            width: 40px;
+            background-color: $color4;
+            .tooltip{
+                position: absolute;
+                left: 100px;
+                display: inline-block;
+                font-size: 15px;
+                width: 150px;
+                visibility: hidden;
+                opacity: 0;
+                transition: 0.2s all;
+            }
+            .tool-tip-gone{
+                display: none;
+            }
+            &:hover{
+                cursor: pointer;
+                .tooltip{
+                    visibility: visible;
+                    opacity: 1;
+                    position: absolute;
+                    left: 50px;
+                }
+            }
+        } 
+        .project-submition{
+            position: absolute;
+            display: none;
+            width:300px;
+            left: 50px;
+            top: -25px;
+            text-align: left;
+            button{
+                font-family: $font1;
+                display: inline;
+                background-color: $color1;
+                border: none;
+                outline: none;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .submition-on{
+            display: inline-block;
+        }
+        
+    }
+}

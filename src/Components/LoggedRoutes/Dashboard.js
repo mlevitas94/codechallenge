@@ -7,16 +7,16 @@ import Profile from './Profile/Profile';
 import './dashboard.scss'
 
 const Dashboard = (props) => {
-    useEffect(() => {
-        if(!props.user.id){
-           return props.history.push('/')
-        }
-    }, [])
+    // useEffect(() => {
+    //     if(!props.user.id){
+    //        return props.history.push('/')
+    //     }
+    // }, [])
     return (
         <div className='dashboard-container'>
             <Nav passedProps={props}/>
             <Switch>
-                <Route path='/dashboard/projects' component={Projects}/>
+                <Route path='/dashboard/projects' render={(props) => <Projects {...props}/>} />
                 <Route path='/dashboard/profile' component={Profile}/>
             </Switch> 
         </div>    
