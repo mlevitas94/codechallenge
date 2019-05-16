@@ -55,8 +55,6 @@ module.exports = {
             const projectsList = await db.auth.get_projects(user.id)
 
             const tasksList = await db.auth.get_tasks(user.id)
-            console.log(projectsList,
-                tasksList)
             
             const projects = []
 
@@ -70,15 +68,14 @@ module.exports = {
                     })
                   }
                   if(projects[j].id === projectsList[i].id){
-                    console.log('break')
                     break
                   }else{
-                    console.log('push attempt')
                     projects.push({
                       id: projectsList[i].id,
                       name: projectsList[i].name,
                       tasks : []
                     })
+                    break
                   }
                 }
                 for(let k = 0; k < tasksList.length; k++){
@@ -98,12 +95,10 @@ module.exports = {
               }
 
             session.user = user
-            console.log(session.user)
+
             session.user.projects = projects
             session.user.taskLength = tasksList.length;
-            console.log(session.user)
-            console.log(projects)
-            console.log(session)
+
 
             return res.status(200).send(session.user)
 
@@ -113,7 +108,7 @@ module.exports = {
     },
     getUser: (req,res) => {
         const {user} = req.session
-        console.log(req.session)
+  
 
         if(user){
             res.status(200).send(user)
@@ -131,15 +126,23 @@ module.exports = {
     },
 
     addProject : async (req,res) => {
-        const db = req.app.get('db')
-        const {name} = req.body
-        const {id} = req.session.user
-        console.log(name)
+      const db = req.app.get('db')
+      const {name} = req.body
+      const {session} = req
+      const {id} = req.session.user
+      console.log(session.user)
 
         try{
             let newProject = await db.auth.new_project(id, name)
             newProject = newProject[0]
-            return res.status(200).send(newProject)
+            console.log(session.user)
+            session.user.projects.push({
+              id:newProject.id,
+              name:newProject.name,
+              tasks : []
+            })
+            console.log(session.user)
+            return res.status(200).send(session.user)
         }catch(err){
             return res.status(500).send(err)
         }

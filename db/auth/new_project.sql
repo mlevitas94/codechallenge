@@ -6,4 +6,4 @@ insert into projects(
     $2
 )
 
-returning id, name;
+returning id,user_id, name;

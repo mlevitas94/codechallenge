@@ -3,7 +3,6 @@
 .projects-container{
     font-family: $font1;
     margin: 50px auto 0px auto;
-    width: 1000px;
     .projects-header{
         margin-bottom: 50px;
         h1{
@@ -26,10 +25,9 @@
     .list-container{
         position: relative;
         z-index: 1;
-        overflow-x: scroll;
-        overflow-y: hidden;
         padding-top: 15px;
         height: 375px;
+        width: 1000px;
         position: relative;
         background-color: #5680e947;
         margin: 50px auto 0px auto;
@@ -93,11 +91,16 @@
         
         .no-projects{
             text-align: center;
-            position: relative;
-            bottom: 15px;
         }
-        .all-projects{
-            display: flex;
+        .conditional-container{
+            overflow-y: hidden;
+            .all-projects{
+                position: relative;
+                overflow: auto;
+                display: inline-flex;
+                height: 350px;
+            }
+
         }
         
     }

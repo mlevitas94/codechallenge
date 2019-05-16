@@ -3,10 +3,10 @@ import './projects.scss'
 import Axios from 'axios';
 import {connect} from 'react-redux'
 import Project from './Project/Project'
+import {updateUser} from '../../../ducks/reducer'
 
 const Projects = (props) => {
     const [projNameField, setProjNameField] = useState('')
-    console.log(props)
     useEffect(() => {
         if(!props.user.id){
            return props.history.push('/')
@@ -15,6 +15,7 @@ const Projects = (props) => {
     const newProject = () => {
         Axios.post('/newproject', {name: projNameField}).then(res => {
             console.log(res.data)
+            props.updateUser(res.data)
         }).catch(err => {
             console.log(err)
         })
@@ -25,9 +26,10 @@ const Projects = (props) => {
         input.classList.toggle('submition-on')
     }
     
-    const projects = props.user.projects.map((proj) => {
+    const projects = props.user.projects.map((proj, i) => {
         return (
             <Project
+                key={i}
                 name={proj.name}
                 tasks={proj.tasks}
             />
@@ -53,10 +55,12 @@ const Projects = (props) => {
                     <input type='text' value={projNameField} onChange={(e) => {setProjNameField(e.target.value)}} maxLength={30} placeholder='Project Name...'/> 
                     <button className='submit-project' onClick={() => {newProject()}}>Create</button>
                 </div>
+                <div className='conditional-container'>
                 {props.user.projects.length < 1 ? 
                     <div className='no-projects'>You have no Projects set up!</div>
                      :
                     <div className='all-projects'>{projects}</div>}
+                </div>
             </div>
         </div>
     )
@@ -69,4 +73,4 @@ const mapToProps = reduxState => {
     }
   }
   
-export default connect(mapToProps)(Projects)
+export default connect(mapToProps, {updateUser})(Projects)

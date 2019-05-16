@@ -1,6 +1,6 @@
 @import '../../../../variables.scss';
 .project{
-    margin: 0px 30px;
+    margin: 10px 30px;
     background-color: $color5;
     width: 200px;
     text-align: center;
@@ -10,5 +10,8 @@
     transition: 0.3s all;
     &:hover{
         box-shadow: none;
+    }
+    .project-name{
+        margin: 10px 0px;
     }
 }
