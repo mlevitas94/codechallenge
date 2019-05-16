@@ -16,7 +16,8 @@ module.exports = {
             let newUser = await db.auth.new_user(name, email, hash)
             newUser = newUser[0]
             session.user = {
-                ...newUser
+                ...newUser,
+                projects : []
             }
             res.status(200).send(session.user)
         }catch(err){
@@ -51,10 +52,40 @@ module.exports = {
             delete user.password
             delete user.admin
 
-            const projects = await db.auth.get_projects(user.id)
+            const projectsList = await db.auth.get_projects(user.id)
+
+            const tasksList = await db.auth.get_tasks(user.id)
             
+            const projects = []
+
+            for(let i = 0; i < projectsList.length; i++){
+                if(!projects.includes({id : projectsList[i].id})){
+                    projects.push({
+                        id : projectList[i].id,
+                        name: projectsList[i].name,
+                        user_id : projectsList[i].user_id,
+                        tasks : []
+                    })
+                }
+                for(let j = 0; j < tasksList.length; i++){
+                    if(projectsList[i].id === tasksList[j].project){
+                        for(let k = 0; k < projects.length ; i++){
+                            if(projects[k].id === projects[i].id){
+                                projects[k].tasks.push({
+                                    task_id : tasksList[j].task_id,
+                                    name : tasksList[j].name,
+                                    complete : tasksList[j].complete,
+
+                                })
+                            }
+                        }
+                    }
+                }
+            }
+
             session.user = user
             session.user.projects = projects
+            console.log(projects)
             console.log(session)
 
             return res.status(200).send(session.user)

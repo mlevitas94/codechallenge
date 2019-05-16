@@ -1,6 +1,7 @@
 const initialState = {
-    user : {},
-    projects : {}
+    user : {
+        projects: []
+    }
 }
 const UPDATE_USER = 'UPDATE_USER'
 

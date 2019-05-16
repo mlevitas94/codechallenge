@@ -6,11 +6,14 @@ import Axios from 'axios';
 import {updateUser} from '../../../ducks/reducer'
 
 const Nav = (props) => {
-    const {passedProps} = props
     const logout = () => {
         Axios.get('/logout').then(res => {
-            props.updateUser({})
-            passedProps.history.push('/')
+            console.log(props)
+            props.updateUser({
+                projects : []
+            })
+            props.passedProps.history.push('/')
+            console.log(props)
         }).catch(err => {
             console.log(err)
         })

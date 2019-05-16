@@ -1,16 +1,17 @@
 import React, {useEffect} from 'react'
 import {Switch, Route} from 'react-router-dom'
+import {connect} from 'react-redux'
 import Nav from './Nav/Nav'
 import Projects from './Projects/Projects';
 import Profile from './Profile/Profile';
 import './dashboard.scss'
 
 const Dashboard = (props) => {
-    // useEffect(() => {
-    //     if(!props.user.id){
-    //        return props.history.push('/')
-    //     }
-    // }, [])
+    useEffect(() => {
+        if(!props.user.id){
+           return props.history.push('/')
+        }
+    }, [])
     console.log(props)
     return (
         <div className='dashboard-container'>
@@ -22,4 +23,12 @@ const Dashboard = (props) => {
         </div>    
     )
 }
-  export default Dashboard
+const mapToProps = reduxState => {
+    const {user} = reduxState
+  
+    return {
+        user
+    }
+  }
+  
+export default connect(mapToProps)(Dashboard)

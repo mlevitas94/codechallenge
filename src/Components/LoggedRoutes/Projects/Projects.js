@@ -1,10 +1,16 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './projects.scss'
 import Axios from 'axios';
 import {connect} from 'react-redux'
 
 const Projects = (props) => {
     const [projNameField, setProjNameField] = useState('')
+    console.log(props)
+    useEffect(() => {
+        if(!props.user.id){
+           return props.history.push('/')
+        }
+    }, [])
     const newProject = () => {
         Axios.post('/newproject', {name: projNameField}).then(res => {
             console.log(res.data)
