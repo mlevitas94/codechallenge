@@ -39,8 +39,7 @@ const Projects = (props) => {
                     <input type='text' value={projNameField} onChange={(e) => {setProjNameField(e.target.value)}} maxLength={50} placeholder='Project Name...'/> 
                     <button className='submit-project' onClick={() => {newProject()}}>Create</button>
                 </span>
-                <p>Where projects will go</p>
-                {/* if no projects, display a message */}
+                {props.user.projects.length < 1 ? <div className='no-projects'>You have no Projects set up!</div>: 'something else'}
             </div>
         </div>
     )
