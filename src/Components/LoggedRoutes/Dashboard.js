@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react'
 import {Switch, Route} from 'react-router-dom'
-import {connect} from 'react-redux'
 import Nav from './Nav/Nav'
 import Projects from './Projects/Projects';
 import Profile from './Profile/Profile';
@@ -12,22 +11,15 @@ const Dashboard = (props) => {
     //        return props.history.push('/')
     //     }
     // }, [])
+    console.log(props)
     return (
         <div className='dashboard-container'>
             <Nav passedProps={props}/>
             <Switch>
-                <Route path='/dashboard/projects' render={(props) => <Projects {...props}/>} />
+                <Route path='/dashboard/projects' component={Projects}/>} />
                 <Route path='/dashboard/profile' component={Profile}/>
             </Switch> 
         </div>    
     )
 }
-const mapToProps = reduxState => {
-    const {user} = reduxState
-  
-    return {
-        user
-    }
-  }
-  
-  export default connect(mapToProps)(Dashboard)
+  export default Dashboard

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './projects.scss'
 import Axios from 'axios';
+import {connect} from 'react-redux'
 
 const Projects = (props) => {
     const [projNameField, setProjNameField] = useState('')
@@ -18,10 +19,11 @@ const Projects = (props) => {
         input.classList.toggle('submition-on')
         slider.classList.toggle('tool-tip-gone')
     }
+    console.log(props)
     return (
         <div className='projects-container'>
             <div className='projects-header'>
-                <h1>Welcome back 'namehere'</h1>
+                <h1>Welcome back {props.user.name}</h1>
             </div>
             <div className='project-details'>
                 <ul>
@@ -30,16 +32,25 @@ const Projects = (props) => {
                 </ul>
             </div>
             <div className='list-container'>
-                <div className='add-button'><span onClick={() => {openProjectSubmition()}}>+</span>
+                <div className='add-button'><span className='plus' onClick={() => {openProjectSubmition()}}>+</span>
                 <span className='tooltip'>Create New Project</span>
                 </div>
                 <span className='project-submition'>
                     <input type='text' value={projNameField} onChange={(e) => {setProjNameField(e.target.value)}} maxLength={50} placeholder='Project Name...'/> 
-                    <button className='submit-project' onClick={() => {newProject()}}>Submit</button>
+                    <button className='submit-project' onClick={() => {newProject()}}>Create</button>
                 </span>
                 <p>Where projects will go</p>
+                {/* if no projects, display a message */}
             </div>
         </div>
     )
 }
-export default Projects
+const mapToProps = reduxState => {
+    const {user} = reduxState
+  
+    return {
+        user
+    }
+  }
+  
+export default connect(mapToProps)(Projects)
