@@ -34,14 +34,14 @@ const Project = (props) => {
         <div className='project'>
             <div className='project-name'>{props.name}</div>
 
-            <input placeholder='Add new task...'
+            <input placeholder='Add new task...' maxLength={30}
              onChange={(e) => {setTaskInput(e.target.value)}}/>
 
             <button onClick={() => {submitTask()}}>Create</button>
 
             {props.tasks.length === 0 ? 
                 <div className='no-tasks'>You have not created any tasks yet!</div>
-                : taskList}
+                : <div className='task-list-container'>{taskList}</div>}
         </div>
     )
 }
