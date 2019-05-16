@@ -55,36 +55,52 @@ module.exports = {
             const projectsList = await db.auth.get_projects(user.id)
 
             const tasksList = await db.auth.get_tasks(user.id)
+            console.log(projectsList,
+                tasksList)
             
             const projects = []
 
             for(let i = 0; i < projectsList.length; i++){
-                if(!projects.includes({id : projectsList[i].id})){
+                for(let j = 0; j <= projects.length; j++){
+                  if(projects.length === 0){
                     projects.push({
-                        id : projectList[i].id,
-                        name: projectsList[i].name,
-                        user_id : projectsList[i].user_id,
-                        tasks : []
+                      id: projectsList[i].id,
+                      name: projectsList[i].name,
+                      tasks : []
                     })
+                  }
+                  if(projects[j].id === projectsList[i].id){
+                    console.log('break')
+                    break
+                  }else{
+                    console.log('push attempt')
+                    projects.push({
+                      id: projectsList[i].id,
+                      name: projectsList[i].name,
+                      tasks : []
+                    })
+                  }
                 }
-                for(let j = 0; j < tasksList.length; i++){
-                    if(projectsList[i].id === tasksList[j].project){
-                        for(let k = 0; k < projects.length ; i++){
-                            if(projects[k].id === projects[i].id){
-                                projects[k].tasks.push({
-                                    task_id : tasksList[j].task_id,
-                                    name : tasksList[j].name,
-                                    complete : tasksList[j].complete,
-
-                                })
-                            }
-                        }
+                for(let k = 0; k < tasksList.length; k++){
+                  if(tasksList[k].project === projectsList[i].id){
+                    for(let l = 0; l < projects.length; l++){
+                      if(tasksList[k].project === projects[l].id){
+                        projects[l].tasks.push({
+                          task_id: tasksList[k].task_id,
+                          project : tasksList[k].project,
+                          name : tasksList[k].name,
+                          completed : tasksList[k].completed
+                        })
+                      }
                     }
+                  }
                 }
-            }
+              }
 
             session.user = user
+            console.log(session.user)
             session.user.projects = projects
+            console.log(session.user)
             console.log(projects)
             console.log(session)
 

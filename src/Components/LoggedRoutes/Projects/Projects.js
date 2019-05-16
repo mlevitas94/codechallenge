@@ -29,7 +29,7 @@ const Projects = (props) => {
     return (
         <div className='projects-container'>
             <div className='projects-header'>
-                <h1>Welcome back {props.user.name}</h1>
+                <h1>Project List</h1>
             </div>
             <div className='project-details'>
                 <ul>
