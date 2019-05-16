@@ -100,6 +100,7 @@ module.exports = {
             session.user = user
             console.log(session.user)
             session.user.projects = projects
+            session.user.taskLength = tasksList.length;
             console.log(session.user)
             console.log(projects)
             console.log(session)

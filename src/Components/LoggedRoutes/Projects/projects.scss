@@ -3,7 +3,7 @@
 .projects-container{
     font-family: $font1;
     margin: 50px auto 0px auto;
-    width: 800px;
+    width: 1000px;
     .projects-header{
         margin-bottom: 50px;
         h1{
@@ -25,6 +25,12 @@
     }
     .list-container{
         position: relative;
+        z-index: 1;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        padding-top: 15px;
+        height: 375px;
+        position: relative;
         background-color: #5680e947;
         margin: 50px auto 0px auto;
         .add-button{
@@ -37,30 +43,13 @@
             font-size: 40px;
             width: 40px;
             background-color: $color4;
-            .tooltip{
-                position: absolute;
-                left: 100px;
-                display: inline-block;
-                font-size: 15px;
-                width: 150px;
-                visibility: hidden;
-                opacity: 0;
-                transition: 0.2s all;
-            }
+
             .plus{
                 transition: 0.3s color;
             }
-            .tool-tip-gone{
-                display: none;
-            }
+
             &:hover{
                 cursor: pointer;
-                .tooltip{
-                    visibility: visible;
-                    opacity: 1;
-                    position: absolute;
-                    left: 50px;
-                }
                 .plus{
                     color: $color1;
                 }
@@ -71,8 +60,9 @@
             display: none;
             width:300px;
             left: 50px;
-            top: -25px;
+            top: 5px;
             text-align: left;
+            z-index: 20;
             input{
                 outline: none;
                 padding: 0px 0px 0px 5px;
@@ -105,6 +95,9 @@
             text-align: center;
             position: relative;
             bottom: 15px;
+        }
+        .all-projects{
+            display: flex;
         }
         
     }

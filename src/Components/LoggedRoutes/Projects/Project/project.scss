@@ -1,0 +1,14 @@
+@import '../../../../variables.scss';
+.project{
+    margin: 0px 30px;
+    background-color: $color5;
+    width: 200px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow:3px 3px 10px 1px grey;
+    height: 300px;
+    transition: 0.3s all;
+    &:hover{
+        box-shadow: none;
+    }
+}
