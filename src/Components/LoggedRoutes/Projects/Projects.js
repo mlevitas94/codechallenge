@@ -14,8 +14,9 @@ const Projects = (props) => {
     }, [])
     const newProject = () => {
         Axios.post('/newproject', {name: projNameField}).then(res => {
-            console.log(res.data)
             props.updateUser(res.data)
+            setProjNameField('')
+            document.getElementsByClassName('project-submition')[0].classList.toggle('submition-on')
         }).catch(err => {
             console.log(err)
         })
@@ -31,6 +32,7 @@ const Projects = (props) => {
             <Project
                 key={i}
                 name={proj.name}
+                id={proj.id}
                 tasks={proj.tasks}
             />
         )

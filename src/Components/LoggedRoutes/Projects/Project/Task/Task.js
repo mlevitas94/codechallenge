@@ -3,7 +3,7 @@ import './task.scss'
 
 const Task = (props) => {
     return (
-        <div>
+        <div className='tasks'>
             {props.name}
         </div>
     )

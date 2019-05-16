@@ -130,7 +130,6 @@ module.exports = {
       const {name} = req.body
       const {session} = req
       const {id} = req.session.user
-      console.log(session.user)
 
         try{
             let newProject = await db.auth.new_project(id, name)
@@ -146,5 +145,27 @@ module.exports = {
         }catch(err){
             return res.status(500).send(err)
         }
+    },
+    
+    addTask: async (req,res) => {
+      const db = req.app.get('db')
+      const {name, id} = req.body
+      const {session} = req
+      
+      try{
+        let newTask = await db.auth.new_task(id, name, session.user.id)
+        newTask = newTask[0]
+
+        for(let i = 0; i < session.user.projects.length; i++){
+          if(newTask.project === session.user.projects[i].id){
+            session.user.projects[i].tasks.push(newTask)
+          }
+        }
+        console.log(session.user)
+        return res.status(200).send(session.user)
+
+      }catch(err){
+        res.status(500).send(err)
+      }
     }
 }
