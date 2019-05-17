@@ -16,18 +16,32 @@
     .task-name{
         width: 100%;
         word-wrap: break-word;
-        padding-left: 15px;
+        padding-left: 5px;
+        
         &:hover{
             cursor: context-menu;
         }
     }
 
-    .complete-button{
+    .complete-button-false{
         position: absolute;
         text-align: center;
         top: -10px;
         left:-10px;
         background-color: red;
+        border-radius: 50%;
+        width: 20px;
+        padding: 2px 0px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .complete-button-true{
+        position: absolute;
+        text-align: center;
+        top: -10px;
+        left:-10px;
+        background-color: green;
         border-radius: 50%;
         width: 20px;
         padding: 2px 0px;

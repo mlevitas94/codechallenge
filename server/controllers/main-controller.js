@@ -168,5 +168,32 @@ module.exports = {
       }catch(err){
         res.status(500).send(err)
       }
+    },
+    updateTask : async (req,res) => {
+      const db = req.app.get('db')
+      const {id, completed} = req.body
+      const {session} = req
+
+      try{
+        let updatedTask = await db.auth.update_task(completed, id)
+        updatedTask = updatedTask[0]
+        console.log(updatedTask)
+
+        for(let i = 0; i < session.user.projects.length; i++){
+          console.log(session.user.projects[i])
+          for(let j = 0; j < session.user.projects[i].tasks.length; j++){
+            if(session.user.projects[i].tasks[j].task_id === updatedTask.task_id){
+              session.user.projects[i].tasks[j].completed = updatedTask.completed
+              console.log(session.user.projects[i].tasks[j])
+            }
+          }
+        }
+
+        return res.status(200).send(session.user)
+
+
+      }catch(err){
+        return res.status(500).send(err)
+      }
     }
 }

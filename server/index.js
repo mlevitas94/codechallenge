@@ -24,6 +24,7 @@ app.get('/getuser', main.getUser)
 app.get('/logout', main.logout)
 app.post('/newproject', main.addProject)
 app.post('/newtask', main.addTask)
+app.post('/updatetask', main.updateTask)
 
 
 
