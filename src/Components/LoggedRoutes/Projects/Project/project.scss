@@ -41,10 +41,13 @@
         font-weight: bolder;
         text-align: left;
         background-color: #b7b9b7;
-        padding: 5px 0px 5px 20px;
+        padding: 5px 0px 5px 30px;
         margin-bottom: 15px;
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
+        &:hover{
+            cursor: context-menu;
+        }
     }
     .no-tasks{
         font-size: 13px;
