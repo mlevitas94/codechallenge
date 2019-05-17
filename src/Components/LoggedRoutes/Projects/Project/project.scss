@@ -1,7 +1,9 @@
 @import '../../../../variables.scss';
 .project{
+    // position: relative;
+    // z-index: 1;
     margin: 10px 30px;
-    background-color: $color5;
+    background-color: #dfe1e6;
     width: 300px;
     text-align: center;
     border-radius: 5px;
@@ -23,7 +25,7 @@
     button{
         font-family: $font1;
         display: inline;
-        background-color: $color4;
+        background-color: #7894ff;
         border: none;
         outline: none;
         margin-left: 10px;
@@ -35,15 +37,31 @@
         }
     }
     .project-name{
-        margin: 10px 0px;
-        padding-bottom: 5px;
         border-bottom: 1px solid $color4;
+        font-weight: bolder;
+        text-align: left;
+        background-color: #b7b9b7;
+        padding: 5px 0px 5px 20px;
+        margin-bottom: 15px;
     }
     .no-tasks{
         font-size: 13px;
     }
     .task-list-container{
-        width: 50%;
-        margin: 0px auto;
+        position: relative;
+        margin: 0px 20px;
+        overflow-y: scroll;
+        height: 220px;
+        padding-right: 10px;
+        padding-left: 10px;
+        z-index: 1;
+        &::-webkit-scrollbar{
+            width: 5px;
+            background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: #bfbfbf;
+            border-radius: 5px;
+        }
     }
 }

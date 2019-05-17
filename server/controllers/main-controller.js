@@ -161,6 +161,7 @@ module.exports = {
             session.user.projects[i].tasks.push(newTask)
           }
         }
+        session.user.taskLength++
         console.log(session.user)
         return res.status(200).send(session.user)
 

@@ -4,7 +4,8 @@ import './task.scss'
 const Task = (props) => {
     return (
         <div className='task'>
-            <div className='task-name'>{props.name} <span>+</span></div>
+            <div className='complete-button'>+</div>
+            <div className='task-name'>{props.name}</div>
         </div>
     )
 }

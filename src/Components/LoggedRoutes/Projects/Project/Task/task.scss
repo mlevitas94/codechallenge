@@ -1,5 +1,38 @@
 @import '../../../../../variables.scss';
 
 .task{
-    text-align: center;
+    position: relative;
+    text-align: left;
+    justify-content: space-between;
+    margin: 10px 0px;
+    box-shadow: 0 1px 4px 1px rgba(9, 30, 66, 0.25);
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: 0.3s all;
+    &:hover{
+        background-color: #e8e6e6;
+    }
+    .task-name{
+        width: 100%;
+        word-wrap: break-word;
+        padding-left: 15px;
+        &:hover{
+            cursor: context-menu;
+        }
+    }
+
+    .complete-button{
+        position: absolute;
+        text-align: center;
+        top: -10px;
+        left:-10px;
+        background-color: red;
+        border-radius: 50%;
+        width: 20px;
+        padding: 2px 0px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
 }
