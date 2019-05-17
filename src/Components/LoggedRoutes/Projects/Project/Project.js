@@ -40,7 +40,7 @@ const Project = (props) => {
             <input placeholder='Add new task...' maxLength={30}
              onChange={(e) => {setTaskInput(e.target.value)}}/>
 
-            <button onClick={() => {submitTask()}}>Create</button>
+            <button title='Add task' onClick={() => {submitTask()}}>Add</button>
         
             {props.tasks.length === 0 ? 
                 <div className='no-tasks'>You have not created any tasks yet!</div>

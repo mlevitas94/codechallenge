@@ -17,7 +17,7 @@ const Profile = (props) => {
                 }
             }
             let result = completed*100/tasks
-            return result.toFixed(2)
+            return result.toFixed()
         }
         return (
          <Status key={i}
@@ -38,7 +38,7 @@ const Profile = (props) => {
                     <div className='inside-info-container'>
                         <div className='title-container'>
                             <div>Project Name</div>
-                            <div>Completion Percentage</div>
+                            <div>Progress</div>
                         </div>
                         <div className='status-container'>
                             {props.user.projects.length === 0 ?

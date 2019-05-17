@@ -26,16 +26,16 @@ Running the project:
 
 Project description:
 
-This project includes a project and task management system, similar to Trello. You can create an account, log in, and create new projects with tasks to go with them. Once logged in, you are directed to your project list where you can create a new project using the plus symbol on the top left corner of the project container. After you create a project,you can create a task under that newly created project which will default as "incomplete", showing a red X symbol. You can click this icon to mark the task as "complete" which will change the icon to a green check mark. As you create projects, tasks, and update tasks, you can view the status of your project in the profile page which is accessible in the top right corner of the page. In this page, you can view the percentage of completed tasks of a project. When you are finished using the application, you can log out with actions saved and viewable upon log in, or close the browser and be automatically logged in upon re-entry. 
+This project includes a project and task management system, similar to Trello. You can create an account, log in, and create new projects with tasks to go with them. Once logged in, you are directed to your project list where you can create a new project using the plus symbol on the top left corner of the project container. After you create a project, you can create a task under that newly created project which will default as "in progress", showing a grey minus symbol. You can click this icon to mark the task as "complete" which will change the icon to a blue check mark. As you create projects, tasks, and change tasks as "completed", you can view the status of your project in the profile page which is accessible in the top right corner of the page. In this page, you can view the progress of whole project completion. When you are finished using the application, you can log out with actions saved and viewable upon log in, or close the browser and be automatically logged in upon re-entry. 
 
 
-Features considered, but not implemented: 
+Features considered for future enhancements (not implemented in this code):  
 
 1. Login and register form validation.
 2. Mobile design.
-3. Admins able to change other users' projects.
-4. Edit and removing projects and tasks.
-5. Ability to adjust viewable placement of project and task list (as Trello does).
+3. Admins able to change other users' projects (adding new tasks).
+4. Editing and removing projects and tasks (user unable to do it).
+5. Ability to prioritize projects and tasks (moving items up and down the list of projects and tasks).
 6. Cross-browser compatibility. 
 
 

@@ -10,9 +10,6 @@
     padding: 5px 10px;
     border-radius: 3px;
     transition: 0.3s all;
-    &:hover{
-        background-color: #e8e6e6;
-    }
     .task-name{
         width: 100%;
         word-wrap: break-word;
@@ -28,9 +25,9 @@
         text-align: center;
         top: -10px;
         left:-10px;
-        background-color: red;
+        background-color: #9a8a8a;
         border-radius: 50%;
-        padding: 5px 6.5px;
+        padding: 4.5px 5.5px;
         color: white;
         font-weight: bold;
         font-size: 10px;
@@ -44,7 +41,7 @@
         text-align: center;
         top: -10px;
         left:-10px;
-        background-color: green;
+        background-color: #2196f3;
         border-radius: 50%;
         padding: 5px 5px;
         color: white;
