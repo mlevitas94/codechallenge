@@ -1,16 +1,16 @@
 17WebDev Code Challenge
 
 Technologies used:
-React (Front end frame-work)
-Axios (Front end server requests)
-React-Redux (State management)
-React-Router-Dom (Page and component redirects)
-Node.js/Express (Back end setup)
-Express-Session (Session management)
-Bcrpyt (Password authentication)
-Massive (Database requests from back end)
-Dotenv (Key storage)
-Sass (Css pre-processor)
+1. React (Front end frame-work)
+2. Axios (Front end server requests)
+3. React-Redux (State management)
+4. React-Router-Dom (Page and component redirects)
+5. Node.js/Express (Back end setup)
+6. Express-Session (Session management)
+7. Bcrpyt (Password authentication)
+8. Massive (Database requests from back end)
+9. Dotenv (Key storage)
+10. Sass (Css pre-processor)
 
 
 Running the project:
