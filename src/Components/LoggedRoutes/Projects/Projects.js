@@ -62,7 +62,7 @@ const Projects = (props) => {
                 </div>
                 <div className='conditional-container'>
                 {props.user.projects.length < 1 ? 
-                    <div className='no-projects'>You have no Projects set up!</div>
+                    <div className='no-projects'>You do not have any projects set up!</div>
                      :
                     <div className='all-projects'>{projects}</div>}
                 </div>

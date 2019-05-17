@@ -43,7 +43,7 @@ const Profile = (props) => {
                         </div>
                         <div className='status-container'>
                             {props.user.projects.length === 0 ?
-                                <div className='non-setup'>You do not have any projects set up</div>
+                                <div className='non-setup'>You do not have any projects set up!</div>
                                 : <div>{statusList}</div>
                             }
                         </div>
