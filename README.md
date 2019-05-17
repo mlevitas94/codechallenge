@@ -16,11 +16,12 @@ Technologies used:
 Running the project:
 
 1. Install Node/npm here https://nodejs.org/en/ if you have not already.
-2. At the root of the project, run this command in your terminal: npm install
-3. Attatched to the project submition email, I included some information called "dotenv". Copy the dotenv data and make a file at the root of the project called .env
-4. Paste the copied data into the newly created file 
-5. (starting the local server) In one terminal run: nodemon
-6. (Starting react) In another terminal run: npm start
+2. Clone the linked repo in your desired folder by running this command in your terminal: git clone https://github.com/mlevitas94/codechallenge.git
+3. At the root of the project, run this command in your terminal: npm install
+4. Attatched to the project submition email, I included some information called "dotenv". Copy the dotenv data and make a file at the root of the project called .env
+5. Paste the copied data into the newly created file 
+6. (starting the local server) In one terminal run: nodemon
+7. (Starting react) In another terminal run: npm start
 
 
 
