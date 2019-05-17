@@ -27,16 +27,26 @@ const Profile = (props) => {
          />
         )
     })
+    console.log(props.user.projects.length)
     return (
         <div className='profile-container'>
             <div className='inside-profile-container'>
                 <div className='user-info'>
-                    <div>Name</div>
-                    <div>Email</div>
+                    <div>{props.user.name}</div>
+                    <div>{props.user.email}</div>
                 </div>
                 <div className='info-container'>
-                    <div className='status-container'>
-                        {statusList}
+                    <div className='inside-info-container'>
+                        <div className='title-container'>
+                            <div>Project Name</div>
+                            <div>Completion Percentage</div>
+                        </div>
+                        <div className='status-container'>
+                            {props.user.projects.length === 0 ?
+                                <div className='non-setup'>You do not have any projects set up</div>
+                                : <div>{statusList}</div>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
