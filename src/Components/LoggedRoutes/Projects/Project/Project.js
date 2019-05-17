@@ -19,13 +19,16 @@ const Project = (props) => {
         )
     })
     const submitTask = () => {
+        if(taskInput == ''){
+            return alert('please input a value')
+        }
         const taskData = {
             id: props.id,
             name: taskInput
         }
         Axios.post('/newtask', taskData).then(res => {
-            props.updateUser(res.data)
             setTaskInput('')
+            props.updateUser(res.data)
         }).catch(err => {
             console.log(err)
         })

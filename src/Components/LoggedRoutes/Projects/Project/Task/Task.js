@@ -21,8 +21,8 @@ const Task = (props) => {
     return (
         <div className='task'>
             {props.completed === false ?
-                <div className='complete-button-false' onClick={() => {updateTask()}}>+</div>
-                 :<div className='complete-button-true' onClick={() => {updateTask()}}>+</div>}
+                <div className='complete-button-false' onClick={() => {updateTask()}}><i className="fas fa-times"></i></div>
+                 :<div className='complete-button-true' onClick={() => {updateTask()}}><i className="fas fa-check"></i></div>}
             <div className='task-name'>{props.name}</div>
         </div>
     )

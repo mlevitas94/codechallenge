@@ -7,4 +7,4 @@ insert into tasks(
     $2,
     $3
 )
-returning project, name;
+returning *;

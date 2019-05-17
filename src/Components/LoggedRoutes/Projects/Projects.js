@@ -13,6 +13,9 @@ const Projects = (props) => {
         }
     }, [])
     const newProject = () => {
+        if(projNameField == ''){
+            return alert('Please input a value')
+        }
         Axios.post('/newproject', {name: projNameField}).then(res => {
             props.updateUser(res.data)
             setProjNameField('')

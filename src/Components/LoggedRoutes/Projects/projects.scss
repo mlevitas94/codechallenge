@@ -94,11 +94,27 @@
         }
         .conditional-container{
             overflow-y: hidden;
+            &::-webkit-scrollbar{
+                width: 5px;
+                background-color: transparent;
+            }
+            &::-webkit-scrollbar-thumb{
+                background-color: #bfbfbf;
+                border-radius: 5px;
+            }
             .all-projects{
                 position: relative;
                 overflow: auto;
                 display: inline-flex;
                 height: 350px;
+                &::-webkit-scrollbar{
+            width: 5px;
+            background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: #bfbfbf;
+            border-radius: 5px;
+        }
             }
 
         }
