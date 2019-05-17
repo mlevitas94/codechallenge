@@ -33,6 +33,7 @@ Features considered, but not implemented:
 2. Mobile design.
 3. Admins able to change other users' projects.
 4. Edit and removing projects and tasks.
+5. Ability to adjust viewable placement of project and task list (as Trello does).
 
 
 
