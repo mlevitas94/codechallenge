@@ -27,7 +27,6 @@ const Register = (props) => {
             password
         }
         Axios.post('/register', signup).then(res => {
-            console.log(res.data)
             props.updateUser(res.data)
             setNameField('')
             setEmailField('')
@@ -37,7 +36,6 @@ const Register = (props) => {
             console.log(err)
         })
     }
-    console.log(props)
     return(
         <div className='register-container'>
             <h1>Please fill out the information below to get started!</h1>

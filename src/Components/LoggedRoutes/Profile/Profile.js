@@ -27,7 +27,6 @@ const Profile = (props) => {
          />
         )
     })
-    console.log(props.user.projects.length)
     return (
         <div className='profile-container'>
             <div className='inside-profile-container'>

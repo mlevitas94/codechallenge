@@ -12,7 +12,6 @@ const Dashboard = (props) => {
            return props.history.push('/')
         }
     }, [])
-    console.log(props)
     return (
         <div className='dashboard-container'>
             <Nav passedProps={props}/>

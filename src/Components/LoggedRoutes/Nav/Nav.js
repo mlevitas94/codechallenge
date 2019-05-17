@@ -8,12 +8,10 @@ import {updateUser} from '../../../ducks/reducer'
 const Nav = (props) => {
     const logout = () => {
         Axios.get('/logout').then(res => {
-            console.log(props)
             props.updateUser({
                 projects : []
             })
             props.passedProps.history.push('/')
-            console.log(props)
         }).catch(err => {
             console.log(err)
         })
