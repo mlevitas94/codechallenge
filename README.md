@@ -37,7 +37,8 @@ Features considered for future enhancements (not implemented in this code):
 3. Admins able to change other users' projects (adding new tasks).
 4. Editing and removing projects and tasks (user unable to do it).
 5. Ability to prioritize projects and tasks (moving items up and down the list of projects and tasks).
-6. Cross-browser compatibility. 
+6. Cross-browser compatibility.
+7. Displaying error message when Email is already taken. 
 
 
 

@@ -22,6 +22,7 @@ const Register = (props) => {
 
     const register = (name, email, password) =>{
         const fieldErr = document.getElementById('field-err')
+        fieldErr.innerText = ''
         if(nameField === '' || emailField ==='' || passField === ''){
             return fieldErr.innerText='Please fill out all fields'
         }
