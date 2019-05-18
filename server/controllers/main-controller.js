@@ -17,7 +17,8 @@ module.exports = {
             newUser = newUser[0]
             session.user = {
                 ...newUser,
-                projects : []
+                projects : [],
+                taskLength : 0
             }
             res.status(200).send(session.user)
         }catch(err){

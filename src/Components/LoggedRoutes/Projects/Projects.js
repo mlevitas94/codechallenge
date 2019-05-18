@@ -28,6 +28,8 @@ const Projects = (props) => {
     const openProjectSubmition = () => {
         const input = document.getElementsByClassName('project-submition')[0]
         input.classList.toggle('submition-on')
+        document.getElementById('proj-input').focus()
+
     }
     
     const projects = props.user.projects.map((proj, i) => {
@@ -57,8 +59,8 @@ const Projects = (props) => {
                     <span className='plus' onClick={() => {openProjectSubmition()}}>+</span>
                 </div>
                 <div className='project-submition'>
-                    <input type='text' value={projNameField} onChange={(e) => {setProjNameField(e.target.value)}} maxLength={30} placeholder='Project Name...'/> 
-                    <button className='submit-project' onClick={() => {newProject()}}>Create</button>
+                    <input type='text' id='proj-input' value={projNameField} onChange={(e) => {setProjNameField(e.target.value)}} maxLength={30} placeholder='Project Name...'/> 
+                    <button className='submit-project'  onClick={() => {newProject()}}>Create</button>
                 </div>
                 <div className='conditional-container'>
                 {props.user.projects.length < 1 ? 

@@ -1,4 +1,11 @@
 @import '../../variables.scss';
 .login-container{
     @include card;
+    .login-err{
+        display: inline-block;
+        margin-top: 10px;
+        color: red;
+        font-size: 12px;
+        font-weight: bold;
+    }
 }

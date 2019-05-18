@@ -18,10 +18,16 @@ const Login = (props) => {
       props.updateUser(res.data)
       return props.history.push('/dashboard/projects')
     }).catch(err => {
-      //do nothing?
+
     })
 }, [])
   const login = (email, password) => {
+    const errMsg = document.getElementById('login-err')
+    errMsg.innerText = ''
+
+    if(emailField === '' || passField === ''){
+      return errMsg.innerText='Please fill out all fields'
+    }
     const loginInfo = {
       email,
       password
@@ -34,6 +40,8 @@ const Login = (props) => {
 
       
     }).catch(err => {
+      const errMsg = document.getElementById('login-err')
+      errMsg.innerText = 'Invalid username or password'
       
     })
   }
@@ -50,6 +58,7 @@ const Login = (props) => {
             <h4>Password</h4>
             <input type='password' maxLength='50' value={passField} onChange={(e) => setPassField(e.target.value)}/>
         </div>
+        <div className='login-err' id='login-err'></div>
       </div>
       <br/>
       <button onClick={() => {login(emailField, passField)}}>Login</button>

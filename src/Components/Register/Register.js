@@ -21,6 +21,10 @@ const Register = (props) => {
     }, [])
 
     const register = (name, email, password) =>{
+        const fieldErr = document.getElementById('field-err')
+        if(nameField === '' || emailField ==='' || passField === ''){
+            return fieldErr.innerText='Please fill out all fields'
+        }
         const signup = {
             name,
             email,
@@ -33,7 +37,6 @@ const Register = (props) => {
             setPassField('')
             props.history.push('/dashboard/projects')
         }).catch(err => {
-            console.log(err)
         })
     }
     return(
@@ -53,6 +56,7 @@ const Register = (props) => {
                     <h4>Password</h4>
                     <input type='password' maxLength='50' value={passField} onChange={(e) => setPassField(e.target.value)}/>
                 </div>
+                <span className='email-err' id='field-err'></span>
                 <br/>
                 <button onClick={() => register(nameField, emailField, passField)}>Register</button>
             <p>Already have an account? Login <Link to='/'>here</Link></p>
